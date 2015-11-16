@@ -2,7 +2,7 @@ var express = require("express"),
     app = express(),
     server = require("http").createServer(app),
     io = require("socket.io",{ rememberTransport: false, transports: ['WebSocket', 'Flash Socket', 'AJAX long-polling'] }).listen(server);
-server.listen(process.env.PORT || 3000, process.env.IP);
+server.listen(process.env.OPENSHIFT_NODEJS_PO,process.env.OPENSHIFT_NODEJS_IP);
 app.use(express.static(__dirname + '/'));
 app.get('/', function (req, res) {
     res.sendfile(__dirname + "/index.html");
